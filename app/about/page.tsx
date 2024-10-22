@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import StaffMember from '@/components/StaffMember';
-import response from '@/public/response16.jpg'
+import response from '@/public/Response16.jpg'
 
 const staffMembers = [
   { name: "John Doe", position: "President", imageUrl: "https://gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=64" },
@@ -28,7 +28,7 @@ export default function AboutUs() {
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-red-800">Our History</h2>
             <p className="text-gray-700 leading-relaxed dark:text-gray-300">
-              The Company was founded in 1995 and has grown from a small group running out of a home garage until the building was constructed to over 40 active fire and rescue personnel, 30 active support members and 32 lifetime retired members. 
+              The Company was founded in 1995 and has grown from a small group running out of a home garage until the building was constructed to over 40 active fire and rescue personnel, 30 active support members and 32 lifetime retired members.
             </p>
             <p className="text-gray-700 leading-relaxed mt-4 dark:text-gray-300">
               Over the years, we&apos;ve expanded our capabilities, equipment, and training to meet the evolving needs of our community. Our commitment to excellence and service remains unwavering as we continue to be a vital part of Culpeper&apos;s emergency response system.
@@ -42,7 +42,7 @@ export default function AboutUs() {
           </section>
         </div>
       </div>
-      
+
       <section className="mt-12">
         <h2 className="text-3xl font-semibold mb-6 text-red-800 text-center">Our Staff</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
