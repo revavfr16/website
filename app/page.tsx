@@ -6,9 +6,6 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8 space-y-12">
       <section className="text-center">
-        <h1 className="text-4xl font-bold mb-6 text-red-800">
-          Reva Volunteer Fire and Rescue Company 16
-        </h1>
         <div className="relative rounded-lg overflow-hidden shadow-xl">
           <Image
             src={lineup}
