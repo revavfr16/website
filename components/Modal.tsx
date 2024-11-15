@@ -1,6 +1,11 @@
 import { useEffect } from 'react';
 
-export default function Modal({ show, onClose }) {
+interface ModalProps {
+  show: boolean;
+  onClose: () => void;
+}
+
+export default function Modal({ show, onClose }: ModalProps) {
   useEffect(() => {
     if (show) {
       const script = document.createElement('script');

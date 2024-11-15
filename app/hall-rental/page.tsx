@@ -8,8 +8,8 @@ import Modal from "@/components/Modal";
 export default function HallRental() {
   const [showModal, setShowModal] = useState(false);
 
-  const openModal = (e) => {
-    e.preventDefault(); // Prevent Link from navigating
+  const openModal = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     setShowModal(true);
   };
 

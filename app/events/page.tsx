@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { CalendarDays } from 'lucide-react';
-import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/card";
+// import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/card";
 
 const events = [
   {
@@ -40,32 +40,45 @@ export default function Events() {
       <h1 className="text-4xl font-bold mb-6 text-red-800 text-center">Upcoming Events</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map((event, index) => (
-          <Card key={index} className="overflow-hidden">
-            <div className="relative h-48 w-full">
-              {event.image ? (
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <div className="h-full w-full"></div>
-              )}
-            </div>
-            <CardHeader>
-              <div className="flex items-center mb-2">
-                <CalendarDays className="text-red-800 mr-2" />
-                <span className="text-sm font-semibold">
-                  {new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-                </span>
-              </div>
-              <h2 className="text-xl text-red-800">{event.title}</h2>
-            </CardHeader>
-            <CardBody>
-              <p className="text-gray-700">{event.description}</p>
-            </CardBody>
-          </Card>
+          <div key={index} className="relative h-48 w-full">
+            {event.image ? (
+              <Image
+                src={event.image}
+                alt={event.title}
+                fill
+                className="object-cover"
+              />
+            ) : (
+              <div className="h-full w-full"></div>
+            )}
+          </div>
+
+          // <Card key={index} className="overflow-hidden">
+          //   <div className="relative h-48 w-full">
+          //     {event.image ? (
+          //       <Image
+          //         src={event.image}
+          //         alt={event.title}
+          //         fill
+          //         className="object-cover"
+          //       />
+          //     ) : (
+          //       <div className="h-full w-full"></div>
+          //     )}
+          //   </div>
+          //   <CardHeader>
+          //     <div className="flex items-center mb-2">
+          //       <CalendarDays className="text-red-800 mr-2" />
+          //       <span className="text-sm font-semibold">
+          //         {new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+          //       </span>
+          //     </div>
+          //     <h2 className="text-xl text-red-800">{event.title}</h2>
+          //   </CardHeader>
+          //   <CardBody>
+          //     <p className="text-gray-700">{event.description}</p>
+          //   </CardBody>
+          // </Card>
         ))}
       </div>
     </div>

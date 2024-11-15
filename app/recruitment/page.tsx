@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import response from "@/public/Response16.jpg";
 
 export default function Recruitment() {
