@@ -66,7 +66,8 @@ export default function Recruitment() {
               src={response}
               alt="Firehouse History"
               fill
-              className="object-cover"
+              className="object-cover object-[50%_75%]"
+              quality={50}
             />
           </div>
         </div>

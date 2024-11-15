@@ -1,9 +1,9 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 interface StaffMemberProps {
   name: string;
   position: string;
-  imageUrl: string;
+  imageUrl: string | StaticImageData;
 }
 
 export default function StaffMember({ name, position, imageUrl }: StaffMemberProps) {

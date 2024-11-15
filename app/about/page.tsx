@@ -1,44 +1,44 @@
 import Image from "next/image";
 import StaffMember from "@/components/StaffMember";
 import response from "@/public/Response16.jpg";
+import president from "@/public/staff/president.jpg";
+import chief from "@/public/staff/chief.jpg";
 
 const staffMembers = [
   {
     name: "John Doe",
     position: "President",
-    imageUrl:
-      "https://gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=64",
+    imageUrl: president,
   },
-  {
-    name: "Jane Smith",
-    position: "Vice President",
-    imageUrl:
-      "https://gravatar.com/avatar/305e460b479e2e5b48aec07710c08d51?s=64",
-  },
+  // {
+  //   name: "Jane Smith",
+  //   position: "Vice President",
+  //   imageUrl:
+  //     "https://gravatar.com/avatar/305e460b479e2e5b48aec07710c08d51?s=64",
+  // },
   {
     name: "Mike Johnson",
     position: "Chief",
-    imageUrl:
-      "https://gravatar.com/avatar/405e460b479e2e5b48aec07710c08d52?s=64",
+    imageUrl: chief,
   },
-  {
-    name: "Sarah Brown",
-    position: "Deputy Chief",
-    imageUrl:
-      "https://gravatar.com/avatar/505e460b479e2e5b48aec07710c08d53?s=64",
-  },
-  {
-    name: "Tom Wilson",
-    position: "Captain",
-    imageUrl:
-      "https://gravatar.com/avatar/605e460b479e2e5b48aec07710c08d54?s=64",
-  },
-  {
-    name: "Emily Davis",
-    position: "Lieutenant",
-    imageUrl:
-      "https://gravatar.com/avatar/705e460b479e2e5b48aec07710c08d55?s=64",
-  },
+  // {
+  //   name: "Sarah Brown",
+  //   position: "Deputy Chief",
+  //   imageUrl:
+  //     "https://gravatar.com/avatar/505e460b479e2e5b48aec07710c08d53?s=64",
+  // },
+  // {
+  //   name: "Tom Wilson",
+  //   position: "Captain",
+  //   imageUrl:
+  //     "https://gravatar.com/avatar/605e460b479e2e5b48aec07710c08d54?s=64",
+  // },
+  // {
+  //   name: "Emily Davis",
+  //   position: "Lieutenant",
+  //   imageUrl:
+  //     "https://gravatar.com/avatar/705e460b479e2e5b48aec07710c08d55?s=64",
+  // },
 ];
 
 export default function AboutUs() {
@@ -54,6 +54,7 @@ export default function AboutUs() {
             alt="Firehouse History"
             fill
             className="object-cover"
+            quality={50}
           />
         </div>
         <div className="space-y-6">

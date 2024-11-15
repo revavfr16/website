@@ -10,10 +10,7 @@ export default function Home() {
           <Image
             src={lineup}
             alt="Firehouse"
-            style={{
-              maxWidth: "100%",
-              height: "auto",
-            }}
+            quality="50"
             className="object-cover"
           />
         </div>

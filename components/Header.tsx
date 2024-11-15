@@ -14,7 +14,7 @@ export default function Header() {
           <ul className="flex flex-wrap justify-center md:justify-end space-x-4">
             <li><Link href="/about" className="hover:underline transition-colors duration-200">About Us</Link></li>
             <li><Link href="/hall-rental" className="hover:underline transition-colors duration-200">Hall Rental</Link></li>
-            <li><Link href="/gallery" className="hover:underline transition-colors duration-200">Photo Gallery</Link></li>
+            {/* <li><Link href="/gallery" className="hover:underline transition-colors duration-200">Photo Gallery</Link></li> */}
             <li><Link href="/events" className="hover:underline transition-colors duration-200">Events</Link></li>
             <li><Link href="/recruitment" className="hover:underline transition-colors duration-200">Join Us</Link></li>
           </ul>
