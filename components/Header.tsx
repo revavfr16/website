@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header className="relative text-white">
-      <div className="container flex justify-center items-center mx-auto">
+      <div className="container justify-center items-center mx-auto px-4">
         <Link href="/">
           <Image
             src={pathname === "/" ? header : headerNoLineup}
