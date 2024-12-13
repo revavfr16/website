@@ -5,17 +5,6 @@ import lineup from "@/public/FrontLineupCompressed.jpg";
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8 space-y-12">
-      <section className="text-center">
-        <div className="relative rounded-lg overflow-hidden shadow-xl">
-          <Image
-            src={lineup}
-            alt="Firehouse"
-            quality="50"
-            className="object-cover"
-          />
-        </div>
-      </section>
-
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-6">
           <h2 className="text-xl font-bold mb-4 text-red-800">About Us</h2>

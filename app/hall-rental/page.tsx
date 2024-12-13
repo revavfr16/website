@@ -20,7 +20,7 @@ export default function HallRental() {
       <h1 className="text-4xl font-bold mb-6 text-red-800 text-center">
         Hall Rental
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold mb-4 text-red-800">
             Rental Information
