@@ -25,11 +25,11 @@ export default function Header() {
         className={`${pathname === "/" && "hidden"} top-0 left-0 w-full px-4 py-4 flex justify-center md:relative md:-mt-10`}
       >
         <nav>
-          <ul className="flex flex-wrap justify-center space-x-4">
+          <ul className="flex flex-wrap justify-center space-x-2 md:space-x-4">
             <li>
               <Link
                 href="/about"
-                className="px-4 py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
+                className="px-2 py-1 md:px-4 md:py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
               >
                 About Us
               </Link>
@@ -37,7 +37,7 @@ export default function Header() {
             <li>
               <Link
                 href="/hall-rental"
-                className="px-4 py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
+                className="px-2 py-1 md:px-4 md:py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
               >
                 Hall Rental
               </Link>
@@ -45,7 +45,7 @@ export default function Header() {
             <li>
               <Link
                 href="/events"
-                className="px-4 py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
+                className="px-2 py-1 md:px-4 md:py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
               >
                 Events
               </Link>
@@ -53,7 +53,7 @@ export default function Header() {
             <li>
               <Link
                 href="/recruitment"
-                className="px-4 py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
+                className="px-2 py-1 md:px-4 md:py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
               >
                 Join Us
               </Link>
