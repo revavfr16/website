@@ -1,12 +1,95 @@
 import Image from "next/image";
 import StaffMember from "@/components/StaffMember";
-import response from "@/public/Response16.jpg";
+import lineup from "@/public/apparatus/FrontLineup_Alt.jpg";
+import rescue from "@/public/apparatus/RescueEngine16.jpg";
+import wagon from "@/public/apparatus/Wagon16.jpg";
+import tanker from "@/public/apparatus/Tanker16.jpg";
+import brush from "@/public/apparatus/Brush16.jpg";
+import ambulance from "@/public/apparatus/Ambulance16.jpg";
+import response from "@/public/apparatus/Response16.jpg";
 import president from "@/public/staff/president.jpg";
 import chief from "@/public/staff/chief.jpg";
 
+const apparatus = [
+  {
+    name: "Rescue Engine 16",
+    imageUrl: rescue,
+    specs: {
+      "Year Built": "2005",
+      "Manufacturer": "Pierce Dash",
+      "Engine": "Detroit Series 60, 450 HP",
+      "Pump Size": "1500 GPM",
+      "Tank Size": "1000 Gallons Water / 50 Gallons Class A Foam",
+      "Seating Capacity": 6,
+      "Special Equipment": "Husky Class A Foam System",
+    },
+  },
+  {
+    name: "Wagon 16",
+    imageUrl: wagon,
+    specs: {
+      "Year Built": "2005",
+      "Manufacturer": "Pierce Dash",
+      "Engine": "Detroit Series 60, 450 HP",
+      "Pump Size": "1500 GPM",
+      "Tank Size": "1000 Gallons Water / 50 Gallons Class A Foam",
+      "Seating Capacity": 6,
+      "Special Equipment": "Husky Class A Foam System",
+    },
+  },
+  {
+    name: "Tanker 16",
+    imageUrl: tanker, // Replace with actual image if available
+    specs: {
+      "Year Built": "2001",
+      "Manufacturer": "Freightliner / S&S",
+      "Engine": "Caterpillar 410 HP",
+      "Pump Size": "1250 GPM Waterous Pump",
+      "Tank Size": "3000 Gallons",
+      "Seating Capacity": 2,
+      "Special Equipment": "3500 Gallon Dump Tank",
+    },
+  },
+  {
+    name: "Brush 16",
+    imageUrl: brush, // Replace with actual image if available
+    specs: {
+      "Year Built": "2018",
+      "Manufacturer": "Ford F350",
+      "Engine": "6.7 Turbo Diesel",
+      "Pump Size": "100 GPM W.S. Darley Pump",
+      "Tank Size": "230 Gallons Water / 10 Gallons Class A Foam",
+      "Seating Capacity": 2,
+      "Special Equipment": "Pump and Go, Warn 15K Front Winch, Ground Sweeps",
+    },
+  },
+  {
+    name: "Response 16",
+    imageUrl: response, // Replace with actual image if available
+    specs: {
+      "Year Built": "2011",
+      "Manufacturer": "Ford F250",
+      "Engine": "6.7 Diesel",
+      "Seating Capacity": 5,
+      "Special Equipment": "EMS Response Vehicle",
+    },
+  },
+  {
+    name: "Ambulance 16",
+    imageUrl: ambulance, // Replace with actual image if available
+    specs: {
+      "Year Built": "2019",
+      "Manufacturer": "Ford F550",
+      "Engine": "6.7 Diesel",
+      "Seating Capacity": 3,
+      "Special Equipment": "EMS Transport Vehicle",
+    },
+  },
+];
+
 const staffMembers = [
   {
-    name: "John Doe",
+    name: "Dennis Dodson",
     position: "President",
     imageUrl: president,
   },
@@ -17,7 +100,7 @@ const staffMembers = [
   //     "https://gravatar.com/avatar/305e460b479e2e5b48aec07710c08d51?s=64",
   // },
   {
-    name: "Mike Johnson",
+    name: "Matthew McClurg",
     position: "Chief",
     imageUrl: chief,
   },
@@ -30,7 +113,7 @@ const staffMembers = [
   // {
   //   name: "Tom Wilson",
   //   position: "Captain",
-  //   imageUrl:
+  //   imageUrlg
   //     "https://gravatar.com/avatar/605e460b479e2e5b48aec07710c08d54?s=64",
   // },
   // {
@@ -50,7 +133,7 @@ export default function AboutUs() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="relative rounded-lg overflow-hidden shadow-lg">
           <Image
-            src={response}
+            src={lineup}
             alt="Firehouse History"
             fill
             className="object-cover"
@@ -90,16 +173,47 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <section className="mt-12">
-        <h2 className="text-3xl font-semibold mb-6 text-red-800 text-center">
-          Our Staff
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {staffMembers.map((member, index) => (
-            <StaffMember key={index} {...member} />
-          ))}
-        </div>
-      </section>
+      <h1 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
+        Our Staff
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {staffMembers.map((member, index) => (
+          <StaffMember key={index} {...member} />
+        ))}
+      </div>
+
+
+      <h1 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
+        Apparatus
+      </h1>
+      <div className="space-y-6">
+        {apparatus.map((item, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div className="relative rounded-lg shadow-lg">
+              <Image
+                src={item.imageUrl}
+                alt={item.name}
+                width={1200}
+                height={800}
+                className="object-cover rounded-lg"
+                quality={50}
+              />
+            </div>
+            <div className="space-y-6 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg inline-block align-middle">
+              <h2 className="text-2xl font-semibold mb-4 text-red-800">
+                {item.name}
+              </h2>
+              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
+                {Object.entries(item.specs).map(([key, value]) => (
+                  <li key={key}>
+                    <strong>{key}:</strong> {value}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

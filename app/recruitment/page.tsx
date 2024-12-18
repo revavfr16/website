@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import response from "@/public/Response16.jpg";
+import ambulance from "@/public/apparatus/Ambulance16_Wide.jpg";
 
 export default function Recruitment() {
   return (
@@ -46,7 +46,7 @@ export default function Recruitment() {
             </h2>
             <p className="mb-4 text-gray-700 dark:text-gray-300">
               Our Junior Member Program is designed for young adults aged 16-17
-              who are interested in fire and rescue services. This program
+              who are interested in fire andbout rescue services. This program
               provides:
             </p>
             <ul className="list-disc list-inside mb-4 text-gray-700 dark:text-gray-300 space-y-2">
@@ -62,8 +62,8 @@ export default function Recruitment() {
           </div>
           <div className="relative h-64 md:h-96 rounded-lg mt-6 overflow-hidden shadow-lg mb-4">
             <Image
-              src={response}
-              alt="Firehouse History"
+              src={ambulance}
+              alt="ambulance"
               fill
               className="object-cover object-[50%_75%]"
               quality={50}
