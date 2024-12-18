@@ -16,12 +16,12 @@ const apparatus = [
     imageUrl: rescue,
     specs: {
       "Year Built": "2021",
-      "Manufacturer": "Typhoon",
+      "Manufacturer": "E-One Typhoon",
       "Engine": "Cummins X15",
       "Pump Size": "1500 GPM",
       "Tank Size": "750 Gallons Water",
       "Seating Capacity": 4,
-      "Special Equipment": "Amkus Ion Battery Powered Hydraulic cutting/spreading tools, paratech highway kit",
+      "Special Equipment": "Amkus Ion Battery Powered Hydraulic Cutting and Spreading tools\nParatech highway kit",
     },
   },
   {
@@ -32,7 +32,7 @@ const apparatus = [
       "Manufacturer": "Pierce Dash",
       "Engine": "Detroit Series 60, 450 HP",
       "Pump Size": "1500 GPM",
-      "Tank Size": "1000 Gallons Water / 50 Gallons Class A Foam",
+      "Tank Size": "1000 Gallons Water \n 50 Gallons Class A Foam",
       "Seating Capacity": 6,
       "Special Equipment": "Husky Class A Foam System",
     },
@@ -145,13 +145,13 @@ export default function AboutUs() {
             <h2 className="text-2xl font-semibold mb-4 text-red-800">
               Our History
             </h2>
-            <p className="mb-4 text-gray-700 dark:text-gray-300">
+            <p className="mb-4 text-gray-700">
               The Company was founded in 1995 and has grown from a small group
               running out of a home garage until the building was constructed to
               over 40 active fire and rescue personnel, 30 active support
               members and 32 lifetime retired members.
             </p>
-            <p className="mb-4 text-gray-700 dark:text-gray-300">
+            <p className="mb-4 text-gray-700">
               Over the years, we&apos;ve expanded our capabilities, equipment,
               and training to meet the evolving needs of our community. Our
               commitment to excellence and service remains unwavering as we
@@ -161,7 +161,7 @@ export default function AboutUs() {
             <h2 className="text-2xl font-semibold mb-4 text-red-800">
               Our Mission
             </h2>
-            <p className="text-gray-700 leading-relaxed dark:text-gray-100">
+            <p className="text-gray-700 leading-relaxed">
               At Reva Volunteer Fire and Rescue Company 16, we are committed to
               protecting the life and property of the citizens of Culpeper
               County and the surrounding areas, to provide instruction and
@@ -199,17 +199,26 @@ export default function AboutUs() {
                 quality={50}
               />
             </div>
-            <div className="space-y-6 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg inline-block align-middle">
+            <div className="space-y-6 bg-white p-6 rounded-lg shadow-lg inline-block align-middle">
               <h2 className="text-2xl font-semibold mb-4 text-red-800">
                 {item.name}
               </h2>
-              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
-                {Object.entries(item.specs).map(([key, value]) => (
-                  <li key={key}>
-                    <strong>{key}:</strong> {value}
-                  </li>
-                ))}
-              </ul>
+              <div className="overflow-x-auto">
+                <table className="w-full table-fixed border-collapse">
+                  <tbody>
+                    {Object.entries(item.specs).map(([key, value]) => (
+                      <tr key={key} className="px-1 border-b border-gray-600 text-gray-600">
+                        <td className="font-semibold py-2 pr-4 align-top">
+                          {key}:
+                        </td>
+                        <td className="py-2 whitespace-pre-line break-words">
+                          {value}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         ))}
