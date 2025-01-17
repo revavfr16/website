@@ -1,22 +1,63 @@
-import Link from 'next/link';
-import revaIcon from '@/public/REVA-iconWHITE.png'
-import Image from 'next/image';
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import header from "@/public/header.png";
+import headerNoLineup from "@/public/header_nolineup.png";
+import Image from "next/image";
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
-    <header className="bg-red-800 text-white shadow-md">
-      <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-        <Link href="/" className="flex items-center space-x-2 mb-4 md:mb-0">
-          <Image src={revaIcon} alt="Reva Volunteer Fire and Rescue Company 16 Logo" width={50} height={50} />
-          <span className="text-xl font-bold">Reva Volunteer Fire and Rescue Company 16</span>
+    <header className="relative text-white">
+      <div className="container justify-center items-center mx-auto px-4">
+        <Link href="/">
+          <Image
+            src={pathname === "/" ? header : headerNoLineup}
+            alt="Reva Volunteer Fire and Rescue Company 16 Logo"
+            className="w-full h-full object-cover"
+          />
         </Link>
+      </div>
+
+      <div
+        className={`${pathname === "/" && "hidden"} top-0 left-0 w-full px-4 py-4 flex justify-center md:relative md:-mt-10`}
+      >
         <nav>
-          <ul className="flex flex-wrap justify-center md:justify-end space-x-4">
-            <li><Link href="/about" className="hover:underline transition-colors duration-200">About Us</Link></li>
-            <li><Link href="/hall-rental" className="hover:underline transition-colors duration-200">Hall Rental</Link></li>
-            <li><Link href="/gallery" className="hover:underline transition-colors duration-200">Photo Gallery</Link></li>
-            <li><Link href="/events" className="hover:underline transition-colors duration-200">Events</Link></li>
-            <li><Link href="/recruitment" className="hover:underline transition-colors duration-200">Join Us</Link></li>
+          <ul className="flex flex-wrap justify-center space-x-2 md:space-x-4">
+            <li>
+              <Link
+                href="/about"
+                className="px-2 py-1 md:px-4 md:py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
+              >
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/hall-rental"
+                className="px-2 py-1 md:px-4 md:py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
+              >
+                Hall Rental
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/events"
+                className="px-2 py-1 md:px-4 md:py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
+              >
+                Events
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/recruitment"
+                className="px-2 py-1 md:px-4 md:py-2 bg-[#a31b1f] text-white rounded hover:bg-white hover:text-[#a31b1f] transition-colors duration-200"
+              >
+                Join Us
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
