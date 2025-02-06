@@ -94,27 +94,32 @@ const executiveBoard = [
   {
     name: "Dennis Dodson",
     position: "President",
-    imageUrl: president,
+    imageUrl: "",
   },
   {
     name: "Chris Burch",
     position: "Vice President",
+    imageUrl: "",
   },
   {
     name: "Alecia Hamm",
     position: "Treasurer",
+    imageUrl: "",
   },
   {
     name: "Nicole Spears",
     position: "Secretary",
+    imageUrl: "",
   },
   {
     name: "Katie Plath",
     position: "Director",
+    imageUrl: "",
   },
   {
     name: "David Zager",
     position: "Director",
+    imageUrl: "",
   },
 ];
 
@@ -122,31 +127,32 @@ const lineOfficers = [
   {
     name: "Matthew McClurg",
     position: "Chief",
-    imageUrl: chief,
+    imageUrl: "",
   },
   {
     name: "JJ Galvin",
     position: "Deputy Chief",
-    imageUrl: noFire,
+    imageUrl: "",
   },
   {
     name: "Nathan R.",
     position: "Captain",
-    imageUrl: noFire,
+    imageUrl: "",
   },
   {
     name: "Duane Burleigh",
     position: "Lieutenant",
-    imageUrl: noFire,
+    imageUrl: "",
   },
   {
     name: "Joshua Hall",
     position: "Lieutenant",
+    imageUrl: "",
   },
   {
     name: "Chris Burch",
     position: "Lieutenant",
-    imageUrl: noMed,
+    imageUrl: "",
   },
 ];
 
