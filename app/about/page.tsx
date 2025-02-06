@@ -9,6 +9,8 @@ import ambulance from "@/public/apparatus/Ambulance16.jpg";
 import response from "@/public/apparatus/Response16.jpg";
 import president from "@/public/staff/president.jpg";
 import chief from "@/public/staff/chief.jpg";
+import noFire from "@/public/staff/Generic.png";
+import noMed from "@/public/staff/Medic.png";
 
 const apparatus = [
   {
@@ -16,12 +18,13 @@ const apparatus = [
     imageUrl: rescue,
     specs: {
       "Year Built": "2021",
-      "Manufacturer": "E-One Typhoon",
-      "Engine": "Cummins X15",
+      Manufacturer: "E-One Typhoon",
+      Engine: "Cummins X15",
       "Pump Size": "1500 GPM",
       "Tank Size": "750 Gallons Water",
       "Seating Capacity": 4,
-      "Special Equipment": "Amkus Ion Battery Powered Hydraulic Cutting and Spreading tools\nParatech highway kit",
+      "Special Equipment":
+        "Amkus Ion Battery Powered Hydraulic Cutting and Spreading tools\nParatech highway kit",
     },
   },
   {
@@ -29,8 +32,8 @@ const apparatus = [
     imageUrl: wagon,
     specs: {
       "Year Built": "2005",
-      "Manufacturer": "Pierce Dash",
-      "Engine": "Detroit Series 60, 450 HP",
+      Manufacturer: "Pierce Dash",
+      Engine: "Detroit Series 60, 450 HP",
       "Pump Size": "1500 GPM",
       "Tank Size": "1000 Gallons Water \n 50 Gallons Class A Foam",
       "Seating Capacity": 6,
@@ -42,8 +45,8 @@ const apparatus = [
     imageUrl: tanker, // Replace with actual image if available
     specs: {
       "Year Built": "2001",
-      "Manufacturer": "Freightliner / S&S",
-      "Engine": "Caterpillar 410 HP",
+      Manufacturer: "Freightliner / S&S",
+      Engine: "Caterpillar 410 HP",
       "Pump Size": "1250 GPM Waterous Pump",
       "Tank Size": "3000 Gallons",
       "Seating Capacity": 2,
@@ -55,8 +58,8 @@ const apparatus = [
     imageUrl: brush, // Replace with actual image if available
     specs: {
       "Year Built": "2018",
-      "Manufacturer": "Ford F350",
-      "Engine": "6.7 Turbo Diesel",
+      Manufacturer: "Ford F350",
+      Engine: "6.7 Turbo Diesel",
       "Pump Size": "100 GPM W.S. Darley Pump",
       "Tank Size": "230 Gallons Water / 10 Gallons Class A Foam",
       "Seating Capacity": 2,
@@ -68,8 +71,8 @@ const apparatus = [
     imageUrl: response, // Replace with actual image if available
     specs: {
       "Year Built": "2011",
-      "Manufacturer": "Ford F250",
-      "Engine": "6.7 Diesel",
+      Manufacturer: "Ford F250",
+      Engine: "6.7 Diesel",
       "Seating Capacity": 5,
       "Special Equipment": "EMS Response Vehicle",
     },
@@ -79,49 +82,72 @@ const apparatus = [
     imageUrl: ambulance, // Replace with actual image if available
     specs: {
       "Year Built": "2019",
-      "Manufacturer": "Ford F550",
-      "Engine": "6.7 Diesel",
+      Manufacturer: "Ford F550",
+      Engine: "6.7 Diesel",
       "Seating Capacity": 3,
       "Special Equipment": "EMS Transport Vehicle",
     },
   },
 ];
 
-const staffMembers = [
+const executiveBoard = [
   {
     name: "Dennis Dodson",
     position: "President",
     imageUrl: president,
   },
-  // {
-  //   name: "Jane Smith",
-  //   position: "Vice President",
-  //   imageUrl:
-  //     "https://gravatar.com/avatar/305e460b479e2e5b48aec07710c08d51?s=64",
-  // },
+  {
+    name: "Chris Burch",
+    position: "Vice President",
+  },
+  {
+    name: "Alecia Hamm",
+    position: "Treasurer",
+  },
+  {
+    name: "Nicole Spears",
+    position: "Secretary",
+  },
+  {
+    name: "Katie Plath",
+    position: "Director",
+  },
+  {
+    name: "David Zager",
+    position: "Director",
+  },
+];
+
+const lineOfficers = [
   {
     name: "Matthew McClurg",
     position: "Chief",
     imageUrl: chief,
   },
-  // {
-  //   name: "Sarah Brown",
-  //   position: "Deputy Chief",
-  //   imageUrl:
-  //     "https://gravatar.com/avatar/505e460b479e2e5b48aec07710c08d53?s=64",
-  // },
-  // {
-  //   name: "Tom Wilson",
-  //   position: "Captain",
-  //   imageUrlg
-  //     "https://gravatar.com/avatar/605e460b479e2e5b48aec07710c08d54?s=64",
-  // },
-  // {
-  //   name: "Emily Davis",
-  //   position: "Lieutenant",
-  //   imageUrl:
-  //     "https://gravatar.com/avatar/705e460b479e2e5b48aec07710c08d55?s=64",
-  // },
+  {
+    name: "JJ Galvin",
+    position: "Deputy Chief",
+    imageUrl: noFire,
+  },
+  {
+    name: "Nathan R.",
+    position: "Captain",
+    imageUrl: noFire,
+  },
+  {
+    name: "Duane Burleigh",
+    position: "Lieutenant",
+    imageUrl: noFire,
+  },
+  {
+    name: "Joshua Hall",
+    position: "Lieutenant",
+  },
+  {
+    name: "Chris Burch",
+    position: "Lieutenant",
+    imageUrl: noMed,
+  },
 ];
 
 export default function AboutUs() {
@@ -174,21 +200,32 @@ export default function AboutUs() {
       </div>
 
       <h1 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
-        Our Staff
+        Line Officers
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {staffMembers.map((member, index) => (
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        {lineOfficers.map((member, index) => (
           <StaffMember key={index} {...member} />
         ))}
       </div>
 
+      <h1 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
+        Executive Board
+      </h1>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        {executiveBoard.map((member, index) => (
+          <StaffMember key={index} {...member} />
+        ))}
+      </div>
 
       <h1 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
         Apparatus
       </h1>
       <div className="space-y-6">
         {apparatus.map((item, index) => (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div
+            key={index}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch"
+          >
             <div className="relative rounded-lg shadow-lg">
               <Image
                 src={item.imageUrl}
@@ -207,7 +244,10 @@ export default function AboutUs() {
                 <table className="w-full table-fixed border-collapse">
                   <tbody>
                     {Object.entries(item.specs).map(([key, value]) => (
-                      <tr key={key} className="px-1 border-b border-gray-600 text-gray-600">
+                      <tr
+                        key={key}
+                        className="px-1 border-b border-gray-600 text-gray-600"
+                      >
                         <td className="font-semibold py-2 pr-4 align-top">
                           {key}:
                         </td>

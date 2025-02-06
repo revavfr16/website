@@ -35,23 +35,10 @@ export default function HallRental() {
             <li>Workshops and seminars</li>
             <li>Fundraising events</li>
           </ul>
-          <h3 className="text-xl font-semibold mb-2 text-red-800">
-            Rental Rates
-          </h3>
-          <p className="mb-4 text-gray-700 dark:text-gray-300">
-            Weekdays: $500 per day
-            <br />
-            Weekends: $750 per day
-            <br />
-            Hourly rate: $100 per hour (minimum 4 hours)
-          </p>
-          <p className="mb-4 text-gray-700 dark:text-gray-300">
-            A security deposit of $250 is required for all rentals.
-          </p>
           <Link
             href="#"
             onClick={openModal}
-            className="w-full bg-red-800 hover:bg-red-700 text-white py-2 px-4 rounded font-bold"
+            className="w-full items-center bg-red-800 hover:bg-red-700 text-white py-2 px-4 rounded font-bold"
           >
             Book Now
           </Link>
