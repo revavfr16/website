@@ -6,7 +6,8 @@ export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
+          {/* Left Side - Logo and Address */}
           <div className="flex items-center">
             <div className="w-24 h-24 mr-4">
               <Image
@@ -28,9 +29,11 @@ export default function Footer() {
               <p className="text-gray-300">Email: info@reva16.org</p>
             </div>
           </div>
-          <div>
+
+          {/* Right Side - Follow Us */}
+          <div className="mt-6 md:mt-0 md:self-start md:text-right">
             <h3 className="text-xl font-semibold mb-2">Follow Us</h3>
-            <div className="flex space-x-4">
+            <div className="flex justify-center md:justify-end space-x-4">
               <Link href="https://www.facebook.com/revaVFR/" role="button">
                 <span className="[&>svg]:h-7 [&>svg]:w-7 [&>svg]:fill-[#1877f2]">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -51,8 +54,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Copyright */}
         <div className="mt-8 text-center text-gray-400">
-          <p>&copy; 2024 Reva Volunteer Fire and Rescue. All rights reserved.</p>
+          <p>
+            &copy; 2024 Reva Volunteer Fire and Rescue. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
