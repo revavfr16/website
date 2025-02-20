@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 interface StaffMemberProps {
   name: string;
   position: string;
-  imageUrl: string | StaticImageData;
+  imageUrl: string | StaticImageData | undefined;
 }
 
 // export default function StaffMember({
@@ -35,11 +35,7 @@ interface StaffMemberProps {
 //   );
 // }
 
-export default function StaffMember({
-  name,
-  position,
-  imageUrl,
-}: StaffMemberProps) {
+export default function StaffMember({ name, position }: StaffMemberProps) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col items-center space-y-4 mb-4">
       <div className="text-center text-gray-700 dark:text-gray-100">
