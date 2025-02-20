@@ -46,9 +46,9 @@ export default function HallRental() {
         <div>
           <div className="border border-gray-300 rounded-lg overflow-hidden w-full max-w-4xl shadow-lg">
             <iframe
-              src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&showTitle=0&src=cmV2YWZpcmVyZW50YWxzQGdtYWlsLmNvbQ&color=%23039BE5"
+              src="https://calendar.google.com/calendar/embed?src=hallrentals%40reva16.org&ctz=America%2FNew_York"
               className="w-full h-[75vh] sm:h-[500px] md:h-[600px]"
-            ></iframe>
+            />
           </div>
         </div>
       </div>

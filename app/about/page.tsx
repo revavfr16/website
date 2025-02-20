@@ -7,10 +7,6 @@ import tanker from "@/public/apparatus/Tanker16.jpg";
 import brush from "@/public/apparatus/Brush16.jpg";
 import ambulance from "@/public/apparatus/Ambulance16.jpg";
 import response from "@/public/apparatus/Response16.jpg";
-import president from "@/public/staff/president.jpg";
-import chief from "@/public/staff/chief.jpg";
-import noFire from "@/public/staff/Generic.png";
-import noMed from "@/public/staff/Medic.png";
 
 const apparatus = [
   {
@@ -94,32 +90,26 @@ const executiveBoard = [
   {
     name: "Dennis Dodson",
     position: "President",
-    imageUrl: "",
   },
   {
     name: "Chris Burch",
     position: "Vice President",
-    imageUrl: "",
   },
   {
     name: "Alecia Hamm",
     position: "Treasurer",
-    imageUrl: "",
   },
   {
     name: "Nicole Spears",
     position: "Secretary",
-    imageUrl: "",
   },
   {
     name: "Katie Plath",
     position: "Director",
-    imageUrl: "",
   },
   {
     name: "David Zager",
     position: "Director",
-    imageUrl: "",
   },
 ];
 
@@ -127,22 +117,18 @@ const lineOfficers = [
   {
     name: "Matthew McClurg",
     position: "Chief",
-    imageUrl: "",
   },
   {
     name: "JJ Galvin",
     position: "Deputy Chief",
-    imageUrl: "",
   },
   {
     name: "Nathan R.",
     position: "Captain",
-    imageUrl: "",
   },
   {
     name: "Duane Burleigh",
     position: "Lieutenant",
-    imageUrl: "",
   },
   {
     name: "Joshua Hall",
@@ -152,7 +138,6 @@ const lineOfficers = [
   {
     name: "Chris Burch",
     position: "Lieutenant",
-    imageUrl: "",
   },
 ];
 
@@ -210,7 +195,12 @@ export default function AboutUs() {
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {lineOfficers.map((member, index) => (
-          <StaffMember key={index} {...member} />
+          <StaffMember
+            key={index}
+            name={member.name}
+            imageUrl={undefined}
+            position={member.position}
+          />
         ))}
       </div>
 
@@ -219,7 +209,12 @@ export default function AboutUs() {
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {executiveBoard.map((member, index) => (
-          <StaffMember key={index} {...member} />
+          <StaffMember
+            key={index}
+            name={member.name}
+            imageUrl={undefined}
+            position={member.position}
+          />
         ))}
       </div>
 
