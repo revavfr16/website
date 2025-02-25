@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import ambulance from "@/public/apparatus/Ambulance16_Wide.jpg";
+import { useState } from "react";
 
 export default function Recruitment() {
   return (
@@ -33,10 +36,12 @@ export default function Recruitment() {
             <li>Pass a background check</li>
           </ul>
           <Link
-            href="/application-form"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdNW6gjAFJ5WPcRcN6LTFkgjAzB2gzyqbAWumja0kM5KSbhOA/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
           >
-            Download Application Form
+            Application Form
           </Link>
         </div>
         <div>
@@ -46,7 +51,7 @@ export default function Recruitment() {
             </h2>
             <p className="mb-4 text-gray-700 dark:text-gray-300">
               Our Junior Member Program is designed for young adults aged 16-17
-              who are interested in fire andbout rescue services. This program
+              who are interested in fire and rescue services. This program
               provides:
             </p>
             <ul className="list-disc list-inside mb-4 text-gray-700 dark:text-gray-300 space-y-2">
