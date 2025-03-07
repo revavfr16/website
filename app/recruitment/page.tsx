@@ -36,7 +36,7 @@ export default function Recruitment() {
             <li>Pass a background check</li>
           </ul>
           <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdNW6gjAFJ5WPcRcN6LTFkgjAzB2gzyqbAWumja0kM5KSbhOA/viewform"
+            href="https://fill.boloforms.com/signature/1Sa5HLkCTFdFD-geU1-VhYmJeZBlPtCbm-vEbNKoYFTI?p=view#googtrans(en)"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"

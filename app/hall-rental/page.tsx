@@ -1,34 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 export default function HallRental() {
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    setShowModal(true);
-  };
-
-  const closeModal = () => setShowModal(false);
-
-  useEffect(() => {
-    if (showModal) {
-      const script = document.createElement("script");
-      script.src = "https://form.jotform.com/jsform/242674238119056";
-      script.async = true;
-      document.getElementById("jotform-container")?.appendChild(script);
-
-      return () => {
-        const container = document.getElementById("jotform-container");
-        if (container) {
-          container.innerHTML = "";
-        }
-      };
-    }
-  }, [showModal]);
-
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-6 text-red-800 text-center">
@@ -50,11 +22,12 @@ export default function HallRental() {
             <li>Fundraising events</li>
           </ul>
           <Link
-            href="#"
-            onClick={openModal}
-            className="w-full items-center bg-red-800 hover:bg-red-700 text-white py-2 px-4 rounded font-bold"
+            href="https://form.jotform.com/242674238119056"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
           >
-            Book Now
+            Rental Form
           </Link>
         </div>
         <div>
@@ -66,19 +39,6 @@ export default function HallRental() {
           </div>
         </div>
       </div>
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 overflow-y-auto">
-          <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-auto max-h-[90vh]">
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold"
-            >
-              &times;
-            </button>
-            <div id="jotform-container" />
-          </div>
-        </div>
-      )}
     </div>
   );
 }
