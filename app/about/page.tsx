@@ -15,7 +15,7 @@ const apparatus = [
     specs: {
       "Year Built": "2021",
       Manufacturer: "E-One Typhoon",
-      Engine: "Cummins X15",
+      Engine: "Cummins X15, 605 HP",
       "Pump Size": "1500 GPM",
       "Tank Size": "750 Gallons Water",
       "Seating Capacity": 4,
@@ -42,7 +42,7 @@ const apparatus = [
     specs: {
       "Year Built": "2001",
       Manufacturer: "Freightliner / S&S",
-      Engine: "Caterpillar 410 HP",
+      Engine: "Caterpillar C13, 475 HP",
       "Pump Size": "1250 GPM Waterous Pump",
       "Tank Size": "3000 Gallons",
       "Seating Capacity": 2,
@@ -59,7 +59,7 @@ const apparatus = [
       "Pump Size": "100 GPM W.S. Darley Pump",
       "Tank Size": "230 Gallons Water / 10 Gallons Class A Foam",
       "Seating Capacity": 2,
-      "Special Equipment": "Pump and Go, Warn 15K Front Winch, Ground Sweeps",
+      "Special Equipment": "Pump and Roll, Warn 15K Front Winch, Ground Sweeps",
     },
   },
   {
