@@ -1,6 +1,15 @@
 "use client";
-import Link from "next/link";
+
 import { useEffect, useState } from "react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertTriangle, AlertCircle, X } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 
 interface Alert {
   id: string;
@@ -9,21 +18,19 @@ interface Alert {
   description: string;
   severity: string;
   urgency: string;
-  link: string;
 }
 
 const CULPEPER_UGC = "VAZ051";
 const CULPEPER_ZONE = `https://api.weather.gov/zones/forecast/${CULPEPER_UGC}`;
+const CULPEPER_FORECAST = `https://forecast.weather.gov/MapClick.php?zoneid=${CULPEPER_UGC}`;
 
 export default function NwsAlerts() {
   const [alerts, setAlerts] = useState<Alert[]>([]);
-  const [dismissed, setDismissed] = useState(false);
-  const [expanded, setExpanded] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [isDismissed, setIsDismissed] = useState(false);
 
   useEffect(() => {
-    const storedDismissedId = localStorage.getItem("dismissedAlertId");
-
-    async function fetchAlerts() {
+    const fetchAlerts = async () => {
       try {
         const res = await fetch("https://api.weather.gov/alerts/active");
         const data = await res.json();
@@ -39,92 +46,99 @@ export default function NwsAlerts() {
           })
           .map((feature: any) => {
             const props = feature.properties;
-            const awipsId = props.parameters.AWIPSidentifier?.[0] || "";
-            const officeCode = awipsId.slice(-3).toLowerCase();
-            const nwsOfficeUrl = officeCode
-              ? `https://www.weather.gov/${officeCode}/`
-              : "https://www.weather.gov/";
-
             return {
               id: feature.id,
               event: props.event,
+              headline: props.headline,
+              description: props.description,
               severity: props.severity,
               urgency: props.urgency,
-              link: nwsOfficeUrl,
             };
           })
           .filter((alert: Alert) =>
-            ["Extreme", "Severe", "Moderate"].includes(alert.severity),
+            ["Extreme", "Severe", "Moderate"].includes(alert.severity)
           );
 
-        if (filteredAlerts.length > 0) {
-          const latestAlertId = filteredAlerts[0].id;
-          if (storedDismissedId !== latestAlertId) {
-            setAlerts(filteredAlerts);
-            setDismissed(false);
-          }
-        }
+        setAlerts(filteredAlerts);
       } catch (error) {
         console.error("Error fetching NWS alerts:", error);
+      } finally {
+        setLoading(false);
       }
+    };
+
+    if (!isDismissed) {
+      fetchAlerts();
+      const interval = setInterval(fetchAlerts, 5 * 60 * 1000); // Refresh every 5 minutes
+      return () => clearInterval(interval);
     }
+  }, [isDismissed]);
 
-    fetchAlerts();
-  }, []);
-
-  const dismissAlert = () => {
-    if (alerts.length > 0) {
-      localStorage.setItem("dismissedAlertId", alerts[0].id);
-    }
-    setDismissed(true);
-  };
-
-  if (dismissed || alerts.length === 0) return null;
+  if (loading || alerts.length === 0 || isDismissed) return null;
 
   return (
-    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-      <div className="bg-red-700 text-white px-4 py-2 rounded-lg shadow-lg">
-        {!expanded ? (
-          <button
-            onClick={() => setExpanded(true)}
-            className="font-bold underline flex items-center"
+    <div className="fixed top-0 left-0 right-0 z-50 p-4">
+      <Alert className="border-red-500 bg-red-50/95 relative shadow-lg max-w-6xl mx-auto">
+        <div className="absolute right-2 top-2">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-6 w-6 hover:bg-red-100"
+            onClick={() => setIsDismissed(true)}
           >
-            ⚠️ {alerts.length} Weather Alert{alerts.length > 1 ? "s" : ""}
-          </button>
-        ) : (
-          <div className="p-4 space-y-2">
-            <strong>⚠️ Active Weather Alerts:</strong>
-            <ul className="list-disc list-inside">
-              {alerts.map((alert) => (
-                <li key={alert.id}>
-                  <Link
-                    href={alert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline"
-                  >
-                    {alert.event} ({alert.severity})
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="flex justify-between mt-2">
-              <button
-                onClick={() => setExpanded(false)}
-                className="bg-gray-300 text-gray-800 px-3 py-1 rounded hover:bg-gray-400 transition"
+            <X className="h-4 w-4 text-red-500" />
+          </Button>
+        </div>
+        <AlertCircle className="h-4 w-4 text-red-500" />
+        <AlertTitle className="text-red-800 font-bold pr-8 flex items-center justify-between">
+          Culpeper County Weather Alerts
+          <Button
+            asChild
+            variant="default"
+            className="bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-4"
+          >
+            <a
+              href={CULPEPER_FORECAST}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Detailed Forecast
+            </a>
+          </Button>
+        </AlertTitle>
+        <AlertDescription className="text-red-700">
+          {/* <div className="flex justify-between items-center mb-4">
+
+          </div> */}
+          <Accordion type="single" collapsible className="w-full">
+            {alerts.map((alert) => (
+              <AccordionItem 
+                key={alert.id} 
+                value={alert.id}
+                className="border-red-200"
               >
-                Close
-              </button>
-              <button
-                onClick={dismissAlert}
-                className="bg-white text-red-700 px-3 py-1 rounded font-bold hover:bg-gray-200 transition"
-              >
-                ✖ Dismiss All
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+                <AccordionTrigger className="hover:no-underline py-2">
+                  <div className="flex items-center gap-2">
+                    {alert.severity === "Extreme" ? (
+                      <AlertTriangle className="h-4 w-4 text-red-500" />
+                    ) : (
+                      <AlertCircle className="h-4 w-4 text-red-500" />
+                    )}
+                    <span className="text-red-800 font-bold">{alert.event}</span>
+                    <span className="text-sm text-red-600">({alert.severity})</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-2 text-red-700 pl-6">
+                    <p className="font-semibold">{alert.headline}</p>
+                    <p className="text-sm">{alert.description}</p>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </AlertDescription>
+      </Alert>
     </div>
   );
 }

@@ -7,6 +7,9 @@ import tanker from "@/public/apparatus/Tanker16.jpg";
 import brush from "@/public/apparatus/Brush16.jpg";
 import ambulance from "@/public/apparatus/Ambulance16.jpg";
 import response from "@/public/apparatus/Response16.jpg";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
 
 const apparatus = [
   {
@@ -221,45 +224,51 @@ export default function AboutUs() {
       <h1 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
         Apparatus
       </h1>
-      <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {apparatus.map((item, index) => (
-          <div
-            key={index}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch"
-          >
-            <div className="relative rounded-lg shadow-lg">
-              <Image
-                src={item.imageUrl}
-                alt={item.name}
-                width={1200}
-                height={800}
-                className="object-cover rounded-lg"
-                quality={50}
-              />
-            </div>
-            <div className="space-y-6 bg-white p-6 rounded-lg shadow-lg inline-block align-middle">
-              <h2 className="text-2xl font-semibold mb-4 text-red-800">
-                {item.name}
-              </h2>
-              <div className="overflow-x-auto">
-                <table className="w-full table-fixed border-collapse">
-                  <tbody>
-                    {Object.entries(item.specs).map(([key, value]) => (
-                      <tr
-                        key={key}
-                        className="px-1 border-b border-gray-600 text-gray-600"
-                      >
-                        <td className="font-semibold py-2 pr-4 align-top">
-                          {key}:
-                        </td>
-                        <td className="py-2 whitespace-pre-line break-words">
-                          {value}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+          <div key={index} className="relative rounded-lg shadow-lg overflow-hidden group">
+            <Image
+              src={item.imageUrl}
+              alt={item.name}
+              width={1200}
+              height={800}
+              className="object-cover w-full h-64"
+              quality={50}
+            />
+            <div className="absolute bottom-4 right-4">
+              <HoverCard>
+                <HoverCardTrigger asChild>
+                  <Button variant="outline" size="icon" className="bg-white/90 hover:bg-white">
+                    <Menu className="h-4 w-4" />
+                  </Button>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80">
+                  <div className="space-y-4">
+                    <h2 className="text-xl font-semibold text-red-800">
+                      {item.name}
+                    </h2>
+                    <div className="overflow-x-auto">
+                      <table className="w-full table-fixed border-collapse">
+                        <tbody>
+                          {Object.entries(item.specs).map(([key, value]) => (
+                            <tr
+                              key={key}
+                              className="px-1 border-b border-gray-200 text-gray-600"
+                            >
+                              <td className="font-semibold py-2 pr-4 align-top">
+                                {key}:
+                              </td>
+                              <td className="py-2 whitespace-pre-line break-words">
+                                {value}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
             </div>
           </div>
         ))}
