@@ -80,7 +80,7 @@ export default function BulletinBoard() {
           <h3 className="text-xl font-bold mb-3 text-red-800">Upcoming Events</h3>
           <Dialog>
             <DialogTrigger asChild>
-            <div className="relative rounded-lg overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
+              <div className="relative rounded-lg overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
                 <div className="h-48">
                   <Image
                     src={CarShow}
@@ -91,18 +91,19 @@ export default function BulletinBoard() {
                 </div>
               </div>
             </DialogTrigger>
-            <DialogContent className="max-w-none w-auto h-auto p-4 bg-black">
+            <DialogContent className="p-0 w-screen h-screen sm:w-[95vw] sm:h-[95vh] sm:max-w-none bg-black">
               <DialogHeader>
                 <DialogTitle className="sr-only">Annual Car Show Image</DialogTitle>
               </DialogHeader>
-              <Image
-                src={CarShow}
-                alt="Annual Car Show"
-                width={1920}
-                height={1080}
-                className="w-auto h-auto max-h-[85vh]"
-                priority
-              />
+              <div className="w-full h-full flex items-center justify-center">
+                <Image
+                  src={CarShow}
+                  alt="Annual Car Show"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </DialogContent>
           </Dialog>
         </div>
