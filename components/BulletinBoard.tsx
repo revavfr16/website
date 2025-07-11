@@ -65,7 +65,7 @@ export default function BulletinBoard() {
           </CardHeader>
           <CardContent className="pt-2">
             <Link
-              href="https://www.paypal.com/donate?hosted_button_id=259S9Q9DE54SU"
+              href="https://www.zeffy.com/embed/donation-form/donate-to-help-us-help-you"
               target="_blank"
               rel="noopener noreferrer"
             >
