@@ -88,7 +88,7 @@ export default function Header() {
                   </li>
                   <li>
                     <Link
-                      href="https://www.paypal.com/donate?hosted_button_id=259S9Q9DE54SU"
+                      href="https://www.zeffy.com/embed/donation-form/donate-to-help-us-help-you"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-2 py-1 md:px-4 md:py-2 bg-yellow-400 text-black font-bold rounded hover:bg-yellow-500 transition-colors duration-200"

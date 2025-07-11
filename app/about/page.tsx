@@ -7,6 +7,9 @@ import tanker from "@/public/apparatus/Tanker16.jpg";
 import brush from "@/public/apparatus/Brush16.jpg";
 import ambulance from "@/public/apparatus/Ambulance16.jpg";
 import response from "@/public/apparatus/Response16.jpg";
+import mcu from "@/public/apparatus/MCU16.jpg";
+import car from "@/public/apparatus/Car16.jpg";
+import command from "@/public/apparatus/Command16.jpg";
 
 const apparatus = [
   {
@@ -82,6 +85,36 @@ const apparatus = [
       Engine: "6.7 Diesel",
       "Seating Capacity": 3,
       "Special Equipment": "EMS Transport Vehicle",
+    },
+  },
+  {
+    name: "MCU 16",
+    imageUrl: mcu,
+    specs: {
+      "Year Built": "1999",
+      Manufacturer: "Ford F450",
+      "Seating Capacity": 2,
+      "Special Equipment": "Mass Casualty Unit",
+    },
+  },
+  {
+    name: "Command 16",
+    imageUrl: command,
+    specs: {
+      "Year Built": "2024",
+      Manufacturer: "Ford Explorer",
+      "Seating Capacity": 4,
+      "Special Equipment": "Command Vehicle",
+    },
+  },
+  {
+    name: "Car 16",
+    imageUrl: car,
+    specs: {
+      "Year Built": "2024",
+      Manufacturer: "Ford Explorer",
+      "Seating Capacity": 4,
+      "Special Equipment": "Command Vehicle",
     },
   },
 ];
