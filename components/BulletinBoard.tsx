@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import BurnBan from "@/public/events/BurnBan.jpg";
-import CarShow from "@/public/events/carshow.jpg";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,17 +11,30 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import NwsAlerts from "./NWSAlerts";
+import CarShowEvent from "./events/CarShowEvent";
 
 const today = new Date();
+
+// Event configuration - each event is a React component with visibility logic
+const events = [
+  {
+    id: "carshow-2025",
+    component: CarShowEvent,
+    isVisible: () => today <= new Date("2025-07-19"),
+  },
+  // Future events can be added here with their own components and visibility logic
+  // Example:
+  // {
+  //   id: "fire-prevention-week",
+  //   component: FirePreventionCard,
+  //   isVisible: () => today.getMonth() === 9 && today.getDate() >= 1 && today.getDate() <= 7, // October 1-7
+  // },
+];
+
+const activeEvents = events.filter((event) => event.isVisible());
+
 const showBurnBan =
   (today.getMonth() + 1 === 2 && today.getDate() >= 15) || // February 15th to the end of the month
   today.getMonth() + 1 === 3 ||
@@ -76,37 +88,18 @@ export default function BulletinBoard() {
           </CardContent>
         </Card>
 
-        <div>
-          <h3 className="text-xl font-bold mb-3 text-red-800">Upcoming Events</h3>
-          <Dialog>
-            <DialogTrigger asChild>
-              <div className="relative rounded-lg overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
-                <div className="h-48">
-                  <Image
-                    src={CarShow}
-                    alt="Annual Car Show"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </DialogTrigger>
-            <DialogContent className="p-0 w-screen h-screen sm:w-[95vw] sm:h-[95vh] sm:max-w-none bg-black">
-              <DialogHeader>
-                <DialogTitle className="sr-only">Annual Car Show Image</DialogTitle>
-              </DialogHeader>
-              <div className="w-full h-full flex items-center justify-center">
-                <Image
-                  src={CarShow}
-                  alt="Annual Car Show"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            </DialogContent>
-          </Dialog>
-        </div>
+        {/* Render upcoming events */}
+        {activeEvents.length > 0 && (
+          <div>
+            <h3 className="text-xl font-bold mb-3 text-red-800">Upcoming Events</h3>
+            <div className="space-y-4">
+              {activeEvents.map((event) => {
+                const EventComponent = event.component;
+                return <EventComponent key={event.id} />;
+              })}
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
