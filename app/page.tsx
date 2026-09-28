@@ -4,6 +4,7 @@ import BulletinBoard from "@/components/BulletinBoard";
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
+      <h1 className="sr-only">Reva Volunteer Fire and Rescue Company 16</h1>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Left column - Cards (3 columns) */}
         <div className="lg:col-span-3 space-y-8">

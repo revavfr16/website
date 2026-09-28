@@ -223,9 +223,9 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <h1 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
+      <h2 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
         Line Officers
-      </h1>
+      </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {lineOfficers.map((member, index) => (
           <StaffMember
@@ -237,9 +237,9 @@ export default function AboutUs() {
         ))}
       </div>
 
-      <h1 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
+      <h2 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
         Executive Board
-      </h1>
+      </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {executiveBoard.map((member, index) => (
           <StaffMember
@@ -251,9 +251,9 @@ export default function AboutUs() {
         ))}
       </div>
 
-      <h1 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
+      <h2 className="text-4xl font-bold mb-6 mt-6 text-red-800 text-center">
         Apparatus
-      </h1>
+      </h2>
       <div className="space-y-6">
         {apparatus.map((item, index) => (
           <div
@@ -271,20 +271,24 @@ export default function AboutUs() {
               />
             </div>
             <div className="space-y-6 bg-white p-6 rounded-lg shadow-lg inline-block align-middle">
-              <h2 className="text-2xl font-semibold mb-4 text-red-800">
+              <h3 className="text-2xl font-semibold mb-4 text-red-800">
                 {item.name}
-              </h2>
+              </h3>
               <div className="overflow-x-auto">
                 <table className="w-full table-fixed border-collapse">
+                  <caption className="sr-only">{item.name} specifications</caption>
                   <tbody>
                     {Object.entries(item.specs).map(([key, value]) => (
                       <tr
                         key={key}
                         className="px-1 border-b border-gray-600 text-gray-600"
                       >
-                        <td className="font-semibold py-2 pr-4 align-top">
+                        <th
+                          scope="row"
+                          className="font-semibold text-left py-2 pr-4 align-top"
+                        >
                           {key}:
-                        </td>
+                        </th>
                         <td className="py-2 whitespace-pre-line break-words">
                           {value}
                         </td>

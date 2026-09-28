@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 import Image from "next/image";
 import ambulance from "@/public/apparatus/Ambulance16_Wide.jpg";
 import { useState } from "react";
@@ -35,14 +35,12 @@ export default function Recruitment() {
             <li>Complete a physical ability test</li>
             <li>Pass a background check</li>
           </ul>
-          <Link
+          <ExternalLink
             href="https://fill.boloforms.com/signature/1Sa5HLkCTFdFD-geU1-VhYmJeZBlPtCbm-vEbNKoYFTI?p=view#googtrans(en)"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-block bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
           >
             Application Form
-          </Link>
+          </ExternalLink>
         </div>
         <div>
           <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">

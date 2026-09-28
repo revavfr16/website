@@ -1,0 +1,39 @@
+# Fails the build if any page regresses against WCAG 2.1 AA.
+#
+# Runs pa11y-ci (axe-core + HTML_CodeSniffer) against a production build of
+# every page. Configuration lives in .pa11yci.json; run it locally with
+# `npm run build && npm run a11y`.
+name: Accessibility
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: accessibility-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pa11y:
+    name: WCAG 2.1 AA
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build the site
+        run: npm run build
+
+      - name: Check every page
+        run: npm run a11y

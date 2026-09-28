@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import BurnBan from "@/public/events/BurnBan.jpg";
-import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,7 +12,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import NwsAlerts from "./NWSAlerts";
 import CarShowEvent from "./events/CarShowEvent";
 
 const today = new Date();
@@ -44,7 +43,7 @@ export default function BulletinBoard() {
   return (
     <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg">
       <CardHeader className="border-b">
-        <CardTitle className="text-xl font-bold text-red-800">
+        <CardTitle as="h2" className="text-xl font-bold text-red-800">
           Community Bulletin Board
         </CardTitle>
         <CardDescription className="text-gray-700 dark:text-gray-300">
@@ -52,8 +51,6 @@ export default function BulletinBoard() {
         </CardDescription>
       </CardHeader>
       <CardContent className="p-4 space-y-6">
-        <NwsAlerts />
-
         {showBurnBan && (
           <div>
             <div className="relative rounded-lg overflow-hidden shadow-md mt-3">
@@ -76,15 +73,14 @@ export default function BulletinBoard() {
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-2">
-            <Link
-              href="https://www.zeffy.com/embed/donation-form/donate-to-help-us-help-you"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button
+              asChild
+              className="bg-amber-700 hover:bg-amber-800 text-white font-bold w-full"
             >
-              <Button className="bg-amber-600 hover:bg-amber-700 text-white font-bold w-full">
+              <ExternalLink href="https://www.zeffy.com/embed/donation-form/donate-to-help-us-help-you">
                 Donate Now
-              </Button>
-            </Link>
+              </ExternalLink>
+            </Button>
           </CardContent>
         </Card>
 

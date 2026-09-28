@@ -1,0 +1,33 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": [
+      "axe",
+      "htmlcs"
+    ],
+    "includeWarnings": true,
+    "ignore": [
+      "WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.FGColour",
+      "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+      "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs",
+      "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Abs",
+      "frame-tested"
+    ],
+    "timeout": 60000,
+    "wait": 1500,
+    "chromeLaunchConfig": {
+      "args": [
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
+        "--blink-settings=preferredColorScheme=1"
+      ]
+    }
+  },
+  "urls": [
+    "http://localhost:3000/",
+    "http://localhost:3000/about",
+    "http://localhost:3000/hall-rental",
+    "http://localhost:3000/recruitment",
+    "http://localhost:3000/events"
+  ]
+}
