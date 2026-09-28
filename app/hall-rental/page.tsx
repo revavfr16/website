@@ -1,4 +1,4 @@
-import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 
 export default function HallRental() {
   return (
@@ -21,18 +21,17 @@ export default function HallRental() {
             <li>Workshops and seminars</li>
             <li>Fundraising events</li>
           </ul>
-          <Link
+          <ExternalLink
             href="https://form.jotform.com/242674238119056"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-block bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
           >
             Rental Form
-          </Link>
+          </ExternalLink>
         </div>
         <div>
           <div className="border border-gray-300 rounded-lg overflow-hidden w-full max-w-4xl shadow-lg">
             <iframe
+              title="Hall rental availability calendar"
               src="https://calendar.google.com/calendar/embed?src=hallrentals%40reva16.org&ctz=America%2FNew_York"
               className="w-full h-[75vh] sm:h-[500px] md:h-[600px]"
             />

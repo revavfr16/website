@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertTriangle, ChevronDown, ChevronUp } from "lucide-react";
-import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 
 interface Alert {
@@ -99,14 +99,9 @@ export default function NwsAlerts() {
           >
             <AlertTriangle className="h-4 w-4 text-red-500" />
             <AlertTitle className="text-red-800 font-bold">
-              <Link
-                href={alert.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline"
-              >
+              <ExternalLink href={alert.link} className="underline">
                 {alert.event} ({alert.severity})
-              </Link>
+              </ExternalLink>
             </AlertTitle>
             <AlertDescription className="text-red-700">
               <p className="font-semibold">{alert.headline}</p>
@@ -122,6 +117,8 @@ export default function NwsAlerts() {
                   size="sm"
                   className="text-red-700 hover:text-red-800 hover:bg-red-100"
                   onClick={() => toggleAlert(alert.id)}
+                  aria-expanded={isExpanded}
+                  aria-label={isExpanded ? "Show less of this alert" : "Show the full alert"}
                 >
                   {isExpanded ? (
                     <ChevronUp className="h-4 w-4" />

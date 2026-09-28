@@ -14,7 +14,11 @@ export default function CarShowEvent() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="relative rounded-lg overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
+        <button
+          type="button"
+          aria-label="View the Annual Car Show poster"
+          className="relative block w-full rounded-lg overflow-hidden cursor-pointer hover:opacity-95 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-800 focus-visible:ring-offset-2"
+        >
           <div className="h-48">
             <Image
               src={CarShow}
@@ -23,7 +27,7 @@ export default function CarShowEvent() {
               className="object-cover"
             />
           </div>
-        </div>
+        </button>
       </DialogTrigger>
       <DialogContent className="p-0 w-screen h-screen sm:w-[95vw] sm:h-[95vh] sm:max-w-none bg-black">
         <DialogHeader>

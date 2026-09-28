@@ -14,7 +14,7 @@ export default function FirePreventionWeekCard() {
   return (
     <Card className="bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-700">
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl font-bold text-orange-800 dark:text-orange-200">
+        <CardTitle as="h4" className="text-xl font-bold text-orange-800 dark:text-orange-200">
           Fire Prevention Week
         </CardTitle>
         <CardDescription className="text-orange-700 dark:text-orange-300">
@@ -25,15 +25,12 @@ export default function FirePreventionWeekCard() {
         <p className="text-sm text-orange-600 dark:text-orange-400 mb-3">
           Join us for educational events, station tours, and fire safety demonstrations throughout the week.
         </p>
-        <Link
-          href="/events"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Button
+          asChild
+          className="bg-orange-700 hover:bg-orange-800 text-white font-bold w-full"
         >
-          <Button className="bg-orange-600 hover:bg-orange-700 text-white font-bold w-full">
-            Learn More
-          </Button>
-        </Link>
+          <Link href="/events">Learn More</Link>
+        </Button>
       </CardContent>
     </Card>
   );

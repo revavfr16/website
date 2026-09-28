@@ -3,15 +3,12 @@
 @tailwind utilities;
 
 :root {
+  /* The site is light-only. Tailwind's dark mode is class-based and nothing sets
+     the class, so the dark: utilities never apply; a dark page background here
+     would put the red headings on near-black at 2.5:1. */
+  color-scheme: light;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-  }
 }
 
 body {
@@ -31,4 +28,13 @@ body {
 .animate-marquee {
   display: inline-block;
   animation: marquee 15s linear infinite;
+}
+
+/* Visible only when focused with the keyboard; lets people jump past the header and menu. */
+.skip-link {
+  @apply absolute -left-[9999px] top-4 z-50 rounded bg-white px-4 py-2 font-bold text-red-800 shadow-lg;
+}
+
+.skip-link:focus {
+  @apply left-4 outline outline-2 outline-offset-2 outline-red-800;
 }
