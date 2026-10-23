@@ -121,7 +121,7 @@ const apparatus = [
 
 const executiveBoard = [
   {
-    name: "Dennis Dodson",
+    name: "Joshua Hall",
     position: "President",
   },
   {
@@ -141,7 +141,7 @@ const executiveBoard = [
     position: "Director",
   },
   {
-    name: "David Zager",
+    name: "Andy Williams",
     position: "Director",
   },
 ];
@@ -160,16 +160,7 @@ const lineOfficers = [
     position: "Captain",
   },
   {
-    name: "Duane Burleigh",
-    position: "Lieutenant",
-  },
-  {
-    name: "Joshua Hall",
-    position: "Lieutenant",
-    imageUrl: "",
-  },
-  {
-    name: "Chris Burch",
+    name: "Ryan Lovell",
     position: "Lieutenant",
   },
 ];

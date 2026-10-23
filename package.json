@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "serve": "serve out -l 3000",
-    "a11y": "start-server-and-test serve http://localhost:3000 pa11y-ci"
+    "a11y": "start-server-and-test serve http://localhost:3000 \"pa11y-ci && npm run a11y:popup\"",
+    "a11y:popup": "node scripts/check-popup-a11y.cjs"
   },
   "dependencies": {
     "@next/swc-wasm-nodejs": "13.5.1",
@@ -32,7 +33,9 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "pa11y": "^9.1.1",
     "pa11y-ci": "^4.1.1",
+    "puppeteer": "^24.43.1",
     "serve": "^14.2.6",
     "start-server-and-test": "^3.0.12"
   }
