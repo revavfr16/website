@@ -20,6 +20,25 @@ const SEEN_KEY = "reva-open-house-2026-seen";
 
 export default function OpenHousePopup() {
   const [open, setOpen] = useState(false);
+  const [content, setContent] = useState<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!open || !content) return;
+
+    // Radix hides background content with ARIA. Also make it inert so its links
+    // and focus guards cannot receive focus while the modal is open.
+    // The overlay has data-state and must remain interactive for dismissal.
+    const background = Array.from(
+      document.querySelectorAll<HTMLElement>('body > [aria-hidden="true"]'),
+    ).filter((element) => !element.hasAttribute("data-state"));
+    const previouslyInert = background.map((element) => element.inert);
+    background.forEach((element) => { element.inert = true; });
+    return () => {
+      background.forEach((element, index) => {
+        element.inert = previouslyInert[index];
+      });
+    };
+  }, [open, content]);
 
   useEffect(() => {
     const now = Date.now();
@@ -41,10 +60,17 @@ export default function OpenHousePopup() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="w-[calc(100%-1.5rem)] max-w-5xl gap-0 overflow-hidden rounded-2xl border-white/20 bg-slate-950 p-0 text-white shadow-2xl [&>button]:rounded-full [&>button]:bg-white/10 [&>button]:p-2 [&>button]:opacity-100 [&>button]:hover:bg-white/20 [&>button]:focus:ring-orange-400">
-        <DialogHeader className="space-y-1 px-5 py-4 pr-16 text-left">
-          <DialogTitle className="text-lg font-bold leading-snug text-orange-300 sm:text-xl">
-            Open House &amp; Truck or Treat
+      <DialogContent
+        ref={setContent}
+        aria-modal="true"
+        className="w-[calc(100%-1.5rem)] max-w-5xl gap-0 overflow-hidden rounded-2xl border-white/20 bg-slate-950 p-0 text-white shadow-2xl [&>button]:rounded-full [&>button]:bg-slate-800 [&>button]:p-2 [&>button]:opacity-100 [&>button]:hover:bg-slate-700 [&>button]:focus:ring-orange-400"
+      >
+        <DialogHeader className="space-y-1 px-5 py-4 text-left">
+          <DialogTitle asChild className="pr-11 text-lg font-bold leading-snug text-orange-300 sm:text-xl">
+            <h1>
+              <span className="inline-block">Open House</span>{" "}
+              <span className="inline-block">&amp; Truck or Treat</span>
+            </h1>
           </DialogTitle>
           <DialogDescription className="text-sm text-slate-200">
             Saturday, October 24 · 9 AM–1 PM
@@ -65,7 +91,8 @@ export default function OpenHousePopup() {
 
         <div className="flex flex-col items-center justify-between gap-3 px-5 py-4 sm:flex-row">
           <p className="text-center text-sm text-slate-200 sm:text-left">
-            18230 Birmingham Road · Culpeper, VA
+            <span className="inline-block">18230 Birmingham Road,</span>{" "}
+            <span className="inline-block">Culpeper, VA</span>
           </p>
           <DialogClose asChild>
             <button
